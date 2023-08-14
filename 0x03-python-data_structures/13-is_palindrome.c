@@ -60,7 +60,7 @@ int is_palindrome(listint_t **head)
 
 	tmp = tmp->next->next;
 	rev = reverse_listint(&tmp);
-	min = rev;
+	mid = rev;
 
 	tmp = *head;
 	while (rev)
