@@ -21,8 +21,9 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
+
 class TestRectangle_instantiation(unittest.TestCase):
-     """Unittests for testing instantiation of the Rectangle class."""
+    """Unittests for testing instantiation of the Rectangle class."""
 
     def test_rectangle_is_base(self):
         self.assertIsInstance(Rectangle(10, 2), Base)
@@ -108,6 +109,7 @@ class TestRectangle_instantiation(unittest.TestCase):
         r = Rectangle(5, 7, 7, 5, 1)
         r.y = 10
         self.assertEqual(10, r.y)
+
 
 class TestRectangle_width(unittest.TestCase):
     """Unittests for testing initialization of Rectangle width attribute."""
@@ -326,7 +328,10 @@ class TestRectangle_x(unittest.TestCase):
 
     def test_negative_x(self):
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            Rectangle(5, 3, -1, 0)class TestRectangle_y(unittest.TestCase):
+            Rectangle(5, 3, -1, 0)
+
+
+class TestRectangle_y(unittest.TestCase):
     """Unittests for testing initialization of Rectangle y attribute."""
 
     def test_None_y(self):
@@ -794,11 +799,11 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r2.update(**r1.to_dictionary())
         self.assertNotEqual(r1, r2)
 
-    def test_to_dirctionary_arg(self):
+    def test_to_dictionary_arg(self):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
-            r.to_dirctionary(1)
+            r.to_dictionary(1)
 
 
 if __name__ == "__main__":
-    unitest.main()
+    unittest.main()

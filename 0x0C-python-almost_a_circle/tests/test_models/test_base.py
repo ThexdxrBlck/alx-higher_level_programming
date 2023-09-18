@@ -14,11 +14,10 @@ Unittest classes:
 import os
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
+from models. rectangle import Rectangle
 from models.square import Square
 
-
-class TestBase_instantiation(unittest.TestCase):
+class TestBase_instantiation(unittest,TestCase):
     """Unittests for testing instantiation of the Base class."""
 
     def test_no_arg(self):
@@ -26,7 +25,7 @@ class TestBase_instantiation(unittest.TestCase):
         b2 = Base()
         self.assertEqual(b1.id, b2.id - 1)
 
-    def test_three_bases(self):
+    def test_three_base(self):
         b1 = Base()
         b2 = Base()
         b3 = Base()
@@ -38,7 +37,7 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual(b1.id, b2.id - 1)
 
     def test_unique_id(self):
-        self.assertEqual(12, Base(12).id)
+        self.asserEqual(12, Base(12).id)
 
     def test_nb_instances_after_unique_id(self):
         b1 = Base()
@@ -88,7 +87,7 @@ class TestBase_instantiation(unittest.TestCase):
     def test_bytes_id(self):
         self.assertEqual(b'Python', Base(b'Python').id)
 
-     def test_bytearray_id(self):
+    def test_bytearray_id(self):
         self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
 
     def test_memoryview_id(self):
@@ -540,10 +539,10 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         output = Square.load_from_file_csv()
         self.assertEqual([], output)
 
-    def test_load_from_file_csv_more_than_onr_arg(self):
+    def test_load_from_file_csv_more_that_one_arg(self):
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
 
 
-if __name__ == "__main__":
+if __name__ = "__main__":
     unittest.main()
